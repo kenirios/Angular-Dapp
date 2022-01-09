@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -7,19 +7,25 @@ import {
 } from "@angular/forms";
 import { ContractService } from "src/app/services/contract/contract.service";
 
+
 @Component({
-  selector: "app-transaction",
-  templateUrl: "./transaction.component.html",
-  styleUrls: ["./transaction.component.scss"],
+  selector: 'app-play-game',
+  templateUrl: './play-game.component.html',
+  styleUrls: ['./play-game.component.scss']
 })
 
-export class TransactionComponent implements OnInit {
+export class PlayGameComponent implements OnInit {
+
+  mint:boolean;
+  cantidad:number;
   address: string;
   amount: number;
   direction: any;
   transactionForm: FormGroup;
 
   constructor(private fb: FormBuilder, private contract: ContractService) {
+    this.mint;
+    this.cantidad;
     this.transactionForm = new FormGroup({
         sendaddress: new FormControl("", [Validators.required]),
         amount: new FormControl("", [Validators.required]),
@@ -49,7 +55,6 @@ export class TransactionComponent implements OnInit {
     console.log(e);
     this.address = this.transactionForm.value.sendaddress;
     this.amount = this.transactionForm.value.amount;
-
     
     this.contract
       .trasnferEther(this.direction, this.address, this.amount)
@@ -61,5 +66,12 @@ export class TransactionComponent implements OnInit {
         console.log(e);
         this.contract.failure("Transaction failed");
       });
+  }
+  createnft(){
+
+    console.log(this.mint);
+    console.log('---------------');
+    console.log(this.cantidad);
+
   }
 }
