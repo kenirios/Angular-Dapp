@@ -49,17 +49,5 @@ export class TransactionComponent implements OnInit {
     console.log(e);
     this.address = this.transactionForm.value.sendaddress;
     this.amount = this.transactionForm.value.amount;
-
-    
-    this.contract
-      .trasnferEther(this.direction, this.address, this.amount)
-      .then((r) => {
-        console.log(r);
-        this.contract.success();
-      })
-      .catch((e) => {
-        console.log(e);
-        this.contract.failure("Transaction failed");
-      });
   }
 }

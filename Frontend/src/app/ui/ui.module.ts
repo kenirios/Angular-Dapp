@@ -20,6 +20,7 @@ import { RouterModule} from "@angular/router";
 // Services
 import { ContractService } from "../services/contract/contract.service";
 import { ThreeBox } from "../services/3box.service";
+import { SpinComponent } from './spin/spin.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ThreeBox } from "../services/3box.service";
     TopNavComponent,
     TransactionComponent,
     ErrorComponent,
-    PlayGameComponent
+    PlayGameComponent,
+    SpinComponent
   ],
   imports: [
     CommonModule,

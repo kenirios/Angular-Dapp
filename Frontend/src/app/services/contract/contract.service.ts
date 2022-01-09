@@ -12,6 +12,10 @@ declare let require: any;
 const tokenAbi = require('../../../../../Blockchain/build/contracts/LipToken.json');
 declare let window: any;
 
+console.log('+++++++++++++++++');
+console.log(tokenAbi.abi);
+console.log('+++++++++++++++++');
+
 @Injectable({
   providedIn: 'root'
 })
@@ -24,13 +28,15 @@ export class ContractService {
   provider;
   accounts;
   balance;
+  LipToken;
 
   constructor(@Inject(WEB3) private web3: Web3 ,private snackbar: MatSnackBar) {
+    
     const providerOptions = {
       walletconnect: {
         package: WalletConnectProvider, // required
         options: {
-          infuraId: "27e484dcd9e3efcfd25a83a78777cdf1" // required
+         // infuraId: "27e484dcd9e3efcfd25a83a78777cdf1" // required
         }
       }
     };
@@ -48,7 +54,9 @@ export class ContractService {
       }
     });
   }
-
+  
+  
+ 
 
   async connectAccount() {
     this.provider = await this.web3Modal.connect(); // set provider
@@ -61,9 +69,10 @@ export class ContractService {
     const initialvalue = await this.web3js.eth.getBalance(accounts[0]);
     this.balance = this.web3js.utils.fromWei(initialvalue , 'ether');
     return this.balance;
+    
   }
 
-
+/*
   trasnferEther(originAccount, destinyAccount, amount) {
     const that = this;
 
@@ -73,6 +82,7 @@ export class ContractService {
       paymentContract.deployed().then((instance) => {
         let finalAmount =  this.web3.utils.toBN(amount)
         console.log(finalAmount)
+        
         return instance.nuevaTransaccion(
           destinyAccount,
           {
@@ -91,7 +101,7 @@ export class ContractService {
       });
     });
   }
-
+*/
 
   failure(message: string) {
     const snackbarRef = this.snackbar.open(message);

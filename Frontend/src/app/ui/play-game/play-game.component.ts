@@ -22,10 +22,11 @@ export class PlayGameComponent implements OnInit {
   amount: number;
   direction: any;
   transactionForm: FormGroup;
-
+  spin:boolean;
   constructor(private fb: FormBuilder, private contract: ContractService) {
     this.mint;
     this.cantidad;
+
     this.transactionForm = new FormGroup({
         sendaddress: new FormControl("", [Validators.required]),
         amount: new FormControl("", [Validators.required]),
@@ -46,32 +47,18 @@ export class PlayGameComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("Hola Mundo 1");
+    
     this.transactionForm.valueChanges.subscribe((x) => {
     });
   }
 
-  sendEth(e) {
-    console.log(e);
-    this.address = this.transactionForm.value.sendaddress;
-    this.amount = this.transactionForm.value.amount;
-    
-    this.contract
-      .trasnferEther(this.direction, this.address, this.amount)
-      .then((r) => {
-        console.log(r);
-        this.contract.success();
-      })
-      .catch((e) => {
-        console.log(e);
-        this.contract.failure("Transaction failed");
-      });
-  }
+  
+
   createnft(){
-
-    console.log(this.mint);
-    console.log('---------------');
-    console.log(this.cantidad);
-
+   
+    console.log('Crear NFT');
+    this.spin = true;
   }
+
+
 }
