@@ -9,7 +9,7 @@ import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 
 declare let require: any;
-const tokenAbi = require('../../../../../Blockchain/build/contracts/Payment.json');
+const tokenAbi = require('../../../../../Blockchain/build/contracts/LipToken.json');
 declare let window: any;
 
 @Injectable({
