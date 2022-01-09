@@ -30,7 +30,7 @@ export class ContractService {
       walletconnect: {
         package: WalletConnectProvider, // required
         options: {
-          infuraId: "27e484dcd9e3efcfd25a83a78777cdf1" // required
+        //  infuraId: "27e484dcd9e3efcfd25a83a78777cdf1" // required
         }
       }
     };
