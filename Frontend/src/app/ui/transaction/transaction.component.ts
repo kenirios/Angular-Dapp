@@ -46,13 +46,9 @@ export class TransactionComponent implements OnInit {
     });
   }
 
-<<<<<<< HEAD
   sendEth(e) {
     console.log(e);
     this.address = this.transactionForm.value.sendaddress;
     this.amount = this.transactionForm.value.amount;
   }
-=======
-  
->>>>>>> ffb4716321ca71d58ee7fd055d5b063f3b400ba6
 }
